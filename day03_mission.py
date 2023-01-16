@@ -1,13 +1,13 @@
-#ch6-ex2
+#ch6-ex3
 
-guess_me = 7
+guess_me = 5
 number = 1
-while guess_me>=number :
+for number in range(1,10) :
     if  guess_me>=number :
         print('too low')
     if guess_me==number :
         print('found it!')
-    number=number + 1
+
 else :
     print ('oops')
 
