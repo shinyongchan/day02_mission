@@ -1,8 +1,13 @@
-#ch5-ex6
+#ch5-ex7,8
+a = 'Duck'
+b = 'Gourd'
+c = 'Spitz'
 
+print('{}y MC{}face'.format(a,a))
+print('{}y MC{}face'.format(b,b))
+print('{}y MC{}face'.format(c,c))
 
-print(('%s'' Mc' '%s''face')%('Duck','Duck'))
-print(('%s'' Mc' '%s''face')%('Gourd','Gourd'))
-print(('%s'' Mc' '%s''face')%('Spitz','Spitz'))
-
+print(f'{a}y MC{a}face')
+print(f'{b}y MC{b}face')
+print(f'{c}y MC{c}face')
 
