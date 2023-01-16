@@ -1,13 +1,13 @@
-#ch5-ex7,8
-a = 'Duck'
-b = 'Gourd'
-c = 'Spitz'
+#ch6-ex2
 
-print('{}y MC{}face'.format(a,a))
-print('{}y MC{}face'.format(b,b))
-print('{}y MC{}face'.format(c,c))
-
-print(f'{a}y MC{a}face')
-print(f'{b}y MC{b}face')
-print(f'{c}y MC{c}face')
+guess_me = 7
+number = 1
+while guess_me>=number :
+    if  guess_me>=number :
+        print('too low')
+    if guess_me==number :
+        print('found it!')
+    number=number + 1
+else :
+    print ('oops')
 
