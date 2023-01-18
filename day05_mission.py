@@ -1,4 +1,4 @@
-#ch8_ex 8.11
+#ch9_ex 9.1
 
-odds = {number for number in range(10) if number % 2 == 1}
-print(odds)
+def good () :
+    return ['Harry', 'Ron', 'Hermione']
