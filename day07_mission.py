@@ -1,4 +1,4 @@
-#ch10_ex 10.6
+#ch10_ex 10.7
 
 class Element:
     def __init__(self, name, symbol, number):
@@ -6,12 +6,12 @@ class Element:
         self.symbol = symbol
         self.number = number
 
-    def dump(self):
-        print(f'({self.name}, {self.symbol}, {self.number})')
+    def __str__(self):
+        return f'({self.name}, {self.symbol}, {self.number})'
 
 
 hydrogen = Element('Hydrogen', 'H', '1')
-hydrogen.dump()
+print(hydrogen)
 
 
 
