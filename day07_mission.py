@@ -1,14 +1,16 @@
-#ch10_ex 10.3
+#ch10_ex 10.4
 
-class Thing3:
-    def __init__(self):
-        self.letters = 'xyz'
+class Element:
+    def __init__(self, name, symbol, number):
+        self.name = name
+        self.symbol = symbol
+        self.number = number
 
 
-print(Thing3)
-thing = Thing3()
-print(thing.letters)
-
+hydrogen = Element('Hydrogen', 'H', '1')
+print(hydrogen.name)
+print(hydrogen.symbol)
+print(hydrogen.number)
 
 
 
