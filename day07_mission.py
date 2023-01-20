@@ -1,4 +1,4 @@
-#ch10_ex 10.4
+#ch10_ex 10.5
 
 class Element:
     def __init__(self, name, symbol, number):
@@ -7,7 +7,8 @@ class Element:
         self.number = number
 
 
-hydrogen = Element('Hydrogen', 'H', '1')
+el_dict={'name': 'Hydrogen', 'symbol': 'H', 'number': 1}
+hydrogen = Element(el_dict['name'], el_dict['symbol'], el_dict['number'])
 print(hydrogen.name)
 print(hydrogen.symbol)
 print(hydrogen.number)
