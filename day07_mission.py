@@ -1,9 +1,15 @@
-#ch10_ex 10.2
+#ch10_ex 10.3
 
-class Thing2:
-    letters = 'abc'
+class Thing3:
+    def __init__(self):
+        self.letters = 'xyz'
 
 
-print(Thing2.letters)
+print(Thing3)
+thing = Thing3()
+print(thing.letters)
+
+
+
 
 
