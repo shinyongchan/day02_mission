@@ -1,10 +1,9 @@
-#ch10_ex 10.1
+#ch10_ex 10.2
 
-class Thing :
-    pass
+class Thing2:
+    letters = 'abc'
 
 
-example = Thing()
-print(Thing)
-print(example)
+print(Thing2.letters)
+
 
