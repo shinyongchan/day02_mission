@@ -1,68 +1,39 @@
-#ch5-1
+#ch5-2
 import random
 import math
 
 class Node:
 	def __init__(self, data):
 		self.data = data
-		self.link = None
-		self.dist = math.sqrt(data[1]*data[1] + data[2]*data[2])
-
-def pirnt_node(start):
+		self.plink = None
+		self.nlink = None
+def print_node(start):
 	current = start
-	print(f'{current.data[0]}편의점, 거리 : {current.dist}')
-	while current.link != start:
-		current = current.link
-		print(f'{current.data[0]}편의점, 거리 : {current.dist}')
+	print("정방향 -->", end=' ')
+	print(current.data, end=' ')
+	while current.nlink != None:
+		current = current.nlink
+		print(current.data, end=' ')
+	print()
+	print("역방향 -->", end=' ')
+	print(current.data, end=' ')
+	while current.plink != None:
+		current = current.plink
+		print(current.data, end=' ')
 
 
-
-def makeList(store):
-	global head, current, pre
-
-	node = Node(store)
-
-	if head == None:
-		head = node
-		node.link = head
-		return
-	if head.dist > node.dist:
-		node.link = head
-		last = head
-		while last.link != head:
-			last = last.link
-		last.link = node
-		head = node
-		return
-
-
-	current = head
-	while current.link != head:
-		pre = current
-		current = current.link
-		if current.dist > node.dist:
-			pre.link = node
-			node.link = current
-			return
-	current.link = node
-	node.link = head
-
-
-
-
+data_array = ['다현', '정연', '쯔위', '사나', '지효']
 head, current, pre = None, None, None
-memory = []
+
 
 if __name__ == '__main__':
+	node = Node(data_array[0])
+	head = node
 
-	store_array = []
-	store_name = 'A'
-	for _ in range(10):
-		store = (store_name, random.randint(1, 100), random.randint(1, 100))
-		store_array.append(store)
-		store_name = chr(ord(store_name) + 1)
+	for data in data_array[1:]:
+		pre = node
+		node = Node(data)
+		pre.nlink = node
+		node.plink = pre
 
-	for store in store_array:
-		makeList(store)
-
-	pirnt_node(head)
+	print_node(head)
