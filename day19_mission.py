@@ -1,16 +1,35 @@
-#Ch11_2
-def ary_sort(ary):
-    for end in range(1, len(ary)):
-        for i in range(end, 0, -1):
-            if ary[i] < ary[i-1]:
-                ary[i], ary[i-1] = ary[i-1], ary[i]
-    return ary
+#Ch12_1
+import random
+import time
 
-ary2 = [[55, 33, 250, 44], [88,  1,  67, 23], [199,222, 38, 47], [155,145, 20, 99]]
-ary1 = []
+def quick_sort(ary, start, end):
+    if end <= start:
+        return
+    low = start
+    high = end
+    pivot = ary[(high + low) // 2]
+    while low <= high:
+        while ary[low] < pivot:
+            low = low + 1
+        while ary[high] > pivot:
+            high = high - 1
+        if low <= high:
+            ary[low], ary[high] = ary[high], ary[low]
+            low, high = low + 1, high - 1
 
-for i in range(len(ary2)):
-    ary1 = ary1 + ary2[i]
-print("1차원 변경 후, 정렬 전 : ", ary1)
-print("1차원 변경 후, 정렬 후 : ", ary_sort(ary1))
-print("중앙값 : ", ary1[len(ary1)//2])
+    mid = low
+    quick_sort(ary, start, mid-1)
+    quick_sort(ary, mid, end)
+
+
+count_ary = [1000, 10000, 12000, 15000]
+for i in count_ary:
+    data_ary = [random.randint(0,800000) for _ in range(i)]
+    start = time.time()
+    quick_sort(data_ary, 0, len(data_ary)-1)
+    end = time.time()
+    print(f'데이터 수 : {i} 개')
+    print(f'\t퀵 정렬 : {end - start}초')
+
+
+
