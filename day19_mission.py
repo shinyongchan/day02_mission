@@ -1,15 +1,16 @@
-#Ch11_1
-def score_sort(ary):
+#Ch11_2
+def ary_sort(ary):
     for end in range(1, len(ary)):
         for i in range(end, 0, -1):
-            if ary[i][1] < ary[i-1][1]:
+            if ary[i] < ary[i-1]:
                 ary[i], ary[i-1] = ary[i-1], ary[i]
     return ary
 
-score_ary = [['선미', 88], ['초아', 99], ['화사', 71], ['영탁', 78], ['영웅', 67], ['민호', 92]]
-print("정렬전 ---> ", score_ary)
-score_sort(score_ary)
-print("정렬후 ---> ", score_ary)
-print("성적별 조 편성표")
-for i in range (len(score_ary)//2):
-    print(f'{score_ary[i][0]} : {score_ary[len(score_ary)-1-i][0]}')
+ary2 = [[55, 33, 250, 44], [88,  1,  67, 23], [199,222, 38, 47], [155,145, 20, 99]]
+ary1 = []
+
+for i in range(len(ary2)):
+    ary1 = ary1 + ary2[i]
+print("1차원 변경 후, 정렬 전 : ", ary1)
+print("1차원 변경 후, 정렬 후 : ", ary_sort(ary1))
+print("중앙값 : ", ary1[len(ary1)//2])
