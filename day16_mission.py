@@ -37,7 +37,7 @@ top = -1
 
 if __name__ == '__main__':
 
-	ston_array=['빨강', '파랑', '초록', '노랑', '보라', '주황']
+	array=['빨강', '파랑', '초록', '노랑', '보라', '주황']
 	random.shuffle(ston_array)
 
 

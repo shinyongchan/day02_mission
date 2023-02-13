@@ -1,13 +1,8 @@
-#ch6-ex3
+number = int( input('정수를 입력 하시오 (1~10) : '))
 
-guess_me = 5
-number = 1
-for number in range(1,10) :
-    if  guess_me>=number :
-        print('too low')
-    if guess_me==number :
-        print('found it!')
-
-else :
-    print ('oops')
-
+for i in range(1,number*number+1) :
+    if i % number==0 and i >= number:
+        print(i)
+        print('\n')
+    else:
+        print(i, end=' ')
