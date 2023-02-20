@@ -1,11 +1,24 @@
 import random
 
 
-def bin_search(ary,find_data):
+def seq_search(ary, find_data):
+    global count
+    pos = -1
+    for i in range(len(ary)):
+        count = count +1
+        if ary[i] == find_data:
+            pos = i
+            break
+    return pos
+
+
+def bin_search(ary, find_data):
+    global count
     start = 0
     end = len(ary) - 1
 
     while start <= end:
+        count = count +1
         mid = (start + end) // 2
         if find_data == ary[mid]:
             return mid
@@ -17,26 +30,17 @@ def bin_search(ary,find_data):
     return -1
 
 
-data_ary = ['바나나맛우유', '레쓰비캔커피', '츄파춥스', '도시락', '삼다수', '코카콜라', '삼각김밥']
-sell_ary = [random.choice(data_ary) for _ in range(20)]
+count = 0
+find_data = 6544
+data_ary = [random.randint(0, 999999) for _ in range(1000000)]
+data_ary.insert(random.randint(0, 1000000), find_data)
+sorted_ary = sorted(data_ary)
 
 
-print('#오늘 판매된 전체 물건(중복O, 정렬X) -->', sell_ary)
-sell_ary.sort()
-print('#오늘 판매된 전체 물건(중복O, 정렬O) -->', sell_ary)
-sell_product = list(set(sell_ary))
-print('#오늘 판매된 물품 종류(중복x) -->', sell_product)
-
-count_list = []
-for product in sell_product:
-    count = 0
-    pos = 0
-    while pos != -1:
-        pos = bin_search(sell_ary, product)
-        if pos != -1:
-            count += 1
-            del(sell_ary[pos])
-    count_list.append((product, count))
-
-print()
-print("결산 결과 ==>", count_list)
+pos = seq_search(data_ary, find_data)
+if pos != -1:
+    print(f'순차 검색(비정렬 데이터) : {count}회')
+count = 0
+pos = bin_search(sorted_ary, find_data)
+if pos != -1:
+    print(f'이진 검색(정렬 데이터) : {count}회')
